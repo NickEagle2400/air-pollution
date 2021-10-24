@@ -17,7 +17,7 @@ Start2Impact - Javascript advanced guide project
 ## About The Project
 Simple javascript counter
 
-[![JS Counter Screenshot](https://www.nicolasricardi.com/project/js-counter/assets/images/appcounter.png)](https://www.nicolasricardi.com/project/js-counter)
+[![Air Pollution App Screenshot](link)](https://www.nicolasricardi.com/project/js-counter)
 
 ## Built With
 This project is built with javascript
