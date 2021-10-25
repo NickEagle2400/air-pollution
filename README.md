@@ -43,16 +43,16 @@ This project is built with javascript, Webpack, Netlify.
 [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack): "^7.0.3",<br>
 [inject-body-webpack-plugin](https://www.npmjs.com/package/inject-body-webpack-plugin): "^1.3.0",<br>
 [style-loader](https://webpack.js.org/loaders/style-loader/): "^1.3.0",<br>
-[@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader): "^1.12.7",
-[axios](https://axios-http.com/docs/intro): "^0.23.0",
-[html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/): "^5.4.0"
+[@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader)<br>: "^1.12.7",
+[axios](https://axios-http.com/docs/intro): "^0.23.0",<br>
+[html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/): "^5.4.0"<br>
 
 
 ## Getting Started
 
 ### Installation
-<ol>
-<li>First of all you need to download the package or clone the repository:<br>
+
+1. First of all you need to download the package or clone the repository:<br>
 HTTPS
 ```sh
   https://github.com/NickEagle2400/air-pollution.git
@@ -65,11 +65,11 @@ GitHub CLI
 ```sh
   gh repo clone NickEagle2400/air-pollution
 ```
-</li>
-<li>Install npm package<br>
+2. Install npm package
 ```
   npm install
-```</li>
+```
+3. Install Dependencies (See the links above)
 
 ## Usage
 
