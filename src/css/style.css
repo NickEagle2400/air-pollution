@@ -103,15 +103,20 @@ main{
     justify-content: flex-end;
     list-style-type: none;
     margin:0;
-    padding:0px 100px;
+    padding:0px 100px 0px 30px;
 }
 
 #header ul li{
     display: inline-block;
+    margin-left: 20px;
 }
 
 #header ul li a{
     text-decoration: none;
+}
+
+#myposition{
+    cursor: pointer;
 }
 
 
