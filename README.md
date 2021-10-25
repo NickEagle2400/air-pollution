@@ -31,7 +31,7 @@ Air-pollution is the project of Start2Impact's Javascript Advanced guide.
 
 This application allows you to search for a city and view data relating to the air pollution present in that area.
 
-[![Air Pollution App Screenshot](link)](https://www.nicolasricardi.com/project/js-counter)
+[![Air Pollution App Screenshot](https://www.nicolasricardi.com/assets/images/air-pollution.png)](https://eager-neumann-565bb7.netlify.app/)
 
 ### Built With
 This project is built with javascript, Webpack, Netlify.
@@ -76,16 +76,19 @@ GitHub CLI
 <br>
 
 3. Install Dependencies (See the links above)
-4. Create dist directory
+4. Create `dist` directory in the main folder
 4. Enter your API in `.env.example` and rename it `.env`
+
    ```js
    API_KEY = YourAPIKey;
    ```
 
 ## Usage
-this application has two basic use cases:
+This application has two basic use cases:
 1. Search cities in the input field.
 2. Click on "Use My Position" for the nearest station.
+
+Try app [Here](https://eager-neumann-565bb7.netlify.app/)
 
 ## License
 Distributed under the MIT License. See LICENSE.txt for more information.
