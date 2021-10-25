@@ -1,5 +1,4 @@
 # Air Pollution App
-Start2Impact - Javascript advanced guide project
 
 <!-- PROJECT LOGO -->
 <br />
@@ -28,7 +27,9 @@ Start2Impact - Javascript advanced guide project
 </details>
 
 ## About The Project
-Simple javascript counter
+air-pollution is the project of Start2Impact's Javascript Advanced guide.
+
+This application allows you to search for a city and view data relating to the air pollution present in that area.
 
 [![Air Pollution App Screenshot](link)](https://www.nicolasricardi.com/project/js-counter)
 
