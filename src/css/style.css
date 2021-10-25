@@ -284,6 +284,165 @@ td{
     color: rgb(165, 165, 165);
 }
 
+@media screen and (max-width:767px){
+
+    main{
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #header{
+        flex-direction: row-reverse;
+    }
+    
+    .logo{
+        display: none;
+    }
+
+    /* CHECK DOWN*/
+    #search-container{
+        width: 60%;
+        height: 100%;
+        padding: 0px 0px;
+    }
+    
+    #search-container form{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #search-container form input{
+        display: inline-block;
+        width: 70%;
+        padding: 10px;
+        outline: none;
+        border-radius: 0px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border: 1px solid black;
+    }
+    
+    #search-container form button{
+        display: inline-block;
+        width: 30%;
+        padding: 10px;
+        border-radius: 0px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border: 1px solid black;
+        border-left: 0px;
+        outline: none;
+        cursor: pointer;
+    }
+    
+    
+    
+    #header ul{
+        width: 30%;
+        height: 100%;
+        justify-content: flex-start;
+        margin:0;
+        padding:0;
+    }
+
+    #header ul li:nth-child(2){
+        display:none;
+    }
+    
+    #header ul li{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    
+    #header ul li a{
+        text-decoration: none;
+    }
+    
+    #myposition{
+        cursor: pointer;
+    }
+    /* CHECK UP*/
+    
+    #hero{
+        height: auto;
+        flex-direction: column;
+        padding: 100px 20px 20px 20px;
+    }
+    
+    #data{
+        flex-direction: column;
+    }
+    
+    #data h2{
+        font-size: 18px;
+    }
+    
+    
+    #pm, #pmp, #ozone, #index{
+        width: 100%;
+    }
+    #pm, #pmp,#index{
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    
+    #location{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    
+    #map,#info{
+        height: 100%;
+        padding: 40px;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0px 1px 10px 1px rgb(225, 225, 225);
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    
+    #info{
+        margin-right: 0px;
+    }
+
+    #map{
+        min-height:250px;
+    }
+    
+    
+    .tooltip{
+        margin-left: -200px;
+
+    }
+    #ozone .icon .tooltip{
+        margin-left: -200px;
+    }
+    .icon:hover .tooltip {
+        visibility: visible;
+    }
+    
+    .legend{
+        left:-230px;
+    }
+    .i-table:hover .legend{
+        visibility: visible;
+    }
+    
+    #footer{
+        text-align: center;
+        position: relative;
+    }
+    #footer p{
+        color: rgb(165, 165, 165);
+    }
+
+}
+
 
 
 .border-green{
