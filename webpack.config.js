@@ -36,7 +36,9 @@ module.exports = {
             },
             favicon: '',
         }),
-        new Dotenv(),
+        new Dotenv({
+            systemvars: true,
+        }),
     ],
     output: {
         filename: 'bundle.js',
