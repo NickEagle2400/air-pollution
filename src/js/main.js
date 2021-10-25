@@ -60,7 +60,7 @@ searchForm.addEventListener('submit', function(event){
     city = city.toLowerCase();
     
     cityIn.value = "";
-    
+
     axios.get(`${baseUrl}${city}/?token=${process.env.API_KEY}`)
         .then(function (response) {
             let data = response.data.data;
@@ -153,7 +153,7 @@ function loadData(data){
         if(data.aqi!==undefined){
             airQindex.innerHTML = data.aqi;
         }
-        
+        console.log(data);
         let date = data.time.iso.split("T")[0].split("-");
         aqiTime.innerHTML = date[2] + "-" + date[1] + "-" + date[0];
         checkBorder(checkValue(data.aqi),index);
