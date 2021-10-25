@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" type="text/css" />
+
+</head>
+
+<body>
+
+    <body>
+        <div id="loader">Loading...</div>
+
+        <main id="root" style="display:none;">
+
+            <header id="header">
+                <div class="logo">
+                    <p>AIR POLLUTION</p>
+                </div>
+                <div id="search-container">
+                    <form action="javascript:;" id="search-form">
+                        <input id="city-in" type="text" name="searchCity" placeholder="City Name" required>
+                        <button id="search-btn" type="submit" value="search">Search</button>
+                    </form>
+                </div>
+                <ul id="menu">
+                    <li><a href="www.google.it">See GitHub Docs</a></li>
+                </ul>
+            </header>
+
+            <section id="hero">
+                <div id="data">
+                    <div id="index" class="">
+                        <h2>Air Quality Index: <span id="aqi"></span></h2>
+                        <p>Date: <span id="aqiTime"></span></p>
+                        <i class="far fa-question-circle icon i-table">
+                            <div class="legend">
+                                <table>
+                                    <tr>
+                                        <th class="th-value">Value</th>
+                                        <th>Air Quality</th>
+                                    </tr>
+                                    <tr class="green">
+                                        <td>0 - 50</td>
+                                        <td>Good</td>
+                                    </tr>
+                                    <tr class="yellow">
+                                        <td>50 - 100</td>
+                                        <td>Moderate</td>
+                                    </tr>
+                                    <tr class="orange">
+                                        <td>100 - 150</td>
+                                        <td>Unhealthy for sensitive groups</td>
+                                    </tr>
+                                    <tr class="red">
+                                        <td>150 - 200</td>
+                                        <td>Unhealthy</td>
+                                    </tr>
+                                    <tr class="purple">
+                                        <td>200 - 300</td>
+                                        <td>Very Unhealthy</td>
+                                    </tr>
+                                    <tr class="dark-red">
+                                        <td>300 - 500</td>
+                                        <td>Hazardous</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </i>
+
+                    </div>
+                    <div id="pm">
+                        <h2>PM2.5: <span id="pmToday"></span></h2>
+                        <p>Last 5 days</p>
+                        <p>Min: <span id="pmMin"></span>&nbsp;&nbsp;&nbsp;&nbsp;Max: <span id="pmMax"></span></p>
+                        <i class="far fa-question-circle icon"><span class="tooltip">Fine inhalable particles, with diameters that are generally 2.5 micrometers and smaller.</span></i>
+                    </div>
+                    <div id="pmp">
+                        <h2>PM10: <span id="pmpToday"></span></h2>
+                        <p>Last 5 days</p>
+                        <p>Min: <span id="pmpMin"></span>&nbsp;&nbsp;&nbsp;&nbsp;Max: <span id="pmpMax"></span></p>
+                        <i class="far fa-question-circle icon"><span class="tooltip">Inhalable particles, with diameters that are generally 10 micrometers and smaller.</span></i>
+                    </div>
+                    <div id="ozone">
+                        <h2>Ozone: <span id="ozoneToday"></span></h2>
+                        <p>Last 5 days</p>
+                        <p>Min: <span id="ozoneMin"></span>&nbsp;&nbsp;&nbsp;&nbsp;Max: <span id="ozoneMax"></span></p>
+                        <i class="far fa-question-circle icon"><span class="tooltip">Concentration of ozone (O3).</span></i>
+                    </div>
+                </div>
+                <div id="location">
+                    <div id="info">
+                        <h2>City: <span id="cityName"></span></h2>
+                        <p>Region: <span id="cityRegion"></span></p>
+                        <p>Country: <span id="cityCountry"></span></p>
+                    </div>
+                    <div id="map">
+                    </div>
+                </div>
+            </section>
+
+            <footer id="footer">
+                <p>Desing & Dev By Nicolas Ricardi for Start2Impact</p>
+            </footer>
+
+        </main>
+
+        <script defer src="bundle.js"></script>
+    </body>
+</body>
+
+</html>
