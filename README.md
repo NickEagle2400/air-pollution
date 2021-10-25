@@ -33,7 +33,7 @@ This application allows you to search for a city and view data relating to the a
 
 [![Air Pollution App Screenshot](link)](https://www.nicolasricardi.com/project/js-counter)
 
-## Built With
+### Built With
 This project is built with javascript, Webpack, Netlify.
 
 ## Dependencies
@@ -49,7 +49,10 @@ This project is built with javascript, Webpack, Netlify.
 
 
 ## Getting Started
-First of all you need to download the package or clone the repository:
+
+### Installation
+<ol>
+<li>First of all you need to download the package or clone the repository:<br>
 HTTPS
 ```sh
   https://github.com/NickEagle2400/air-pollution.git
@@ -58,10 +61,15 @@ SSH
 ```sh
   git@github.com:NickEagle2400/air-pollution.git
 ```
-GIT CLI
+GitHub CLI
 ```sh
   gh repo clone NickEagle2400/air-pollution
 ```
+</li>
+<li>Install npm package<br>
+```
+  npm install
+```</li>
 
 ## Usage
 
