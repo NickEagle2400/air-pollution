@@ -1,6 +1,15 @@
 # Air Pollution App
 Start2Impact - Javascript advanced guide project
 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://nicolasricardi.com">
+    <img src="https://nicolasricardi.com/assets/images/logo.png" alt="Logo Nicolas Ricardi" width="80" height="80">
+  </a>
+
+  <h3 align="center">Nicolas Ricardi - Javascript Advanced Project</h3>
+</div>
 
 <details>
   <summary>Table of Contents</summary>
