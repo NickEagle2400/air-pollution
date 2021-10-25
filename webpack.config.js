@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InjectBodyPlugin = require('inject-body-webpack-plugin').default;
 const path = require('path');
 const { title } = require('process');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'development',
@@ -10,6 +12,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Pollution App',
             inject: 'body',
+            template: 'index.html',
             meta:{
                 viewport: 'width=device-width, initial-scale=1',
                 title: 'pollution app',
@@ -32,12 +35,11 @@ module.exports = {
                 'og:image': 'summary'
             },
             favicon: '',
-
-
-        })
+        }),
+        new Dotenv(),
     ],
     output: {
-        filename: './bundle.js',
+        filename: 'bundle.js',
         path: path.resolve( __dirname, 'dist')
     },
     module:{
@@ -48,6 +50,17 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ]
+            },
+            {
+                test:/\.(gif|png|jpg|svg)(\?.*$|$)/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                        },
+                    },
+                ],
             }
         ]
     }
