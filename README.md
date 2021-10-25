@@ -46,6 +46,7 @@ This project is built with javascript, Webpack, Netlify.
 [@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader): "^1.12.7",<br>
 [axios](https://axios-http.com/docs/intro): "^0.23.0",<br>
 [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/): "^5.4.0"<br>
+[Netflify-cli](https://docs.netlify.com/cli/get-started/): "^6.14.4"<br>
 
 
 ## Getting Started
@@ -75,8 +76,16 @@ GitHub CLI
 <br>
 
 3. Install Dependencies (See the links above)
+4. Create dist directory
+4. Enter your API in `.env.example` and rename it `.env`
+   ```js
+   API_KEY = YourAPIKey;
+   ```
 
 ## Usage
+this application has two basic use cases:
+1. Search cities in the input field.
+2. Click on "Use My Position" for the nearest station.
 
 ## License
 Distributed under the MIT License. See LICENSE.txt for more information.
