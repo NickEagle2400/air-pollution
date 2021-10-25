@@ -118,11 +118,6 @@ main{
 #myposition{
     cursor: pointer;
 }
-.hvr-underline-from-left:before{
-    background:#000!important;
-    height: 1px!important;
-}
-
 
 #hero{
     display: flex;
