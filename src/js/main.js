@@ -9,6 +9,8 @@ const baseGeoUrl = "https://api.waqi.info/feed/geo:"
 const loader = document.getElementById('loader');
 const root = document.getElementById('root');
 
+const API_KEY = process.env.API_KEY;
+
 const searchForm = document.getElementById('search-form');
 const searchBtn = document.getElementById('search-btn');
 const cityIn = document.getElementById('city-in');
@@ -61,7 +63,7 @@ searchForm.addEventListener('submit', function(event){
     
     cityIn.value = "";
 
-    axios.get(`${baseUrl}${city}/?token=${process.env.API_KEY}`)
+    axios.get(`${baseUrl}${city}/?token=${API_KEY}`)
         .then(function (response) {
             console.log(response);
             let data = response.data.data;
@@ -95,7 +97,7 @@ function success(pos){
     let geoLon = pos.coords.longitude.toFixed(4);
 
     console.log(geoLat);
-    axios.get(`${baseGeoUrl}${geoLat};${geoLon}/?token=${process.env.API_KEY}`)
+    axios.get(`${baseGeoUrl}${geoLat};${geoLon}/?token=${API_KEY}`)
         .then(function (response) {
             console.log(response);
             let data = response.data.data;
