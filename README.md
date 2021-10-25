@@ -37,24 +37,40 @@ This application allows you to search for a city and view data relating to the a
 This project is built with javascript, Webpack, Netlify.
 
 ## Dependencies
-[webpack](https://webpack.js.org/): "^5.59.1",
-[webpack-cli](https://webpack.js.org/api/cli/): "^4.9.1"
-[css-loader](https://webpack.js.org/loaders/css-loader/): "^3.6.0",
-[dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack): "^7.0.3",
-[inject-body-webpack-plugin](https://www.npmjs.com/package/inject-body-webpack-plugin): "^1.3.0",
-[style-loader](https://webpack.js.org/loaders/style-loader/): "^1.3.0",
+[webpack](https://webpack.js.org/): "^5.59.1",<br>
+[webpack-cli](https://webpack.js.org/api/cli/): "^4.9.1",<br>
+[css-loader](https://webpack.js.org/loaders/css-loader/): "^3.6.0",<br>
+[dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack): "^7.0.3",<br>
+[inject-body-webpack-plugin](https://www.npmjs.com/package/inject-body-webpack-plugin): "^1.3.0",<br>
+[style-loader](https://webpack.js.org/loaders/style-loader/): "^1.3.0",<br>
+[@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader): "^1.12.7",
+[axios](https://axios-http.com/docs/intro): "^0.23.0",
+[html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/): "^5.4.0"
 
 
 ## Getting Started
-You can see and try the project here [www.nicolasricardi.com](https://www.nicolasricardi.com/project/js-counter)
+First of all you need to download the package or clone the repository:
+HTTPS
+```sh
+  https://github.com/NickEagle2400/air-pollution.git
+```
+SSH
+```sh
+  git@github.com:NickEagle2400/air-pollution.git
+```
+GIT CLI
+```sh
+  gh repo clone NickEagle2400/air-pollution
+```
 
 ## Usage
 
-
+## License
+Distributed under the MIT License. See LICENSE.txt for more information.
 
 ## Contact
 
 Author: [Nicolas Ricardi](www.nicolasricardi.com) <br />
 Email: [info@nicolasricardi.com](mailto:info@nicolasricardi.com)<br />
-[LinkedIn](https://www.linkedin.com/in/nicolasricardi/) - [Twitter](https://twitter.com/nick_ricardi00)
+[LinkedIn](https://www.linkedin.com/in/nicolasricardi/) - [Twitter](https://twitter.com/nick_ricardi00) - [GitHub](https://github.com/NickEagle2400)
 
