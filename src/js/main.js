@@ -82,6 +82,7 @@ searchForm.addEventListener('submit', function(event){
 })
 
 
+//Get User Position
 myPos.addEventListener('click', function(event){
     event.preventDefault();
 
@@ -91,6 +92,7 @@ myPos.addEventListener('click', function(event){
 
 })
 
+//Successfull Get User Position
 function success(pos){
 
     let geoLat = pos.coords.latitude.toFixed(4);
@@ -104,7 +106,6 @@ function success(pos){
             if(response.status >= 200 && response.status <300) {
                 loadData(data);
             }
-            console.log(response);
         })
         .catch(function (error) {
             alert("The city is not in the database.");
@@ -157,7 +158,6 @@ function loadData(data){
         if(data.aqi!==undefined){
             airQindex.innerHTML = data.aqi;
         }
-        console.log(data);
         let date = data.time.iso.split("T")[0].split("-");
         aqiTime.innerHTML = date[2] + "-" + date[1] + "-" + date[0];
         checkBorder(checkValue(data.aqi),index);
@@ -207,9 +207,7 @@ function loadData(data){
             });
         });
 }
-/*
-const cityName = document.getElementById('cityName');
-cityName.innerHTML = process.env.API_KEY; */
+
 
 
 
