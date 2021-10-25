@@ -67,11 +67,13 @@ GitHub CLI
   gh repo clone NickEagle2400/air-pollution
 ```
 <br>
+
 2. Install npm package
-```
+```sh
   npm install
 ```
 <br>
+
 3. Install Dependencies (See the links above)
 
 ## Usage
