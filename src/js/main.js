@@ -46,7 +46,7 @@ window.addEventListener('load', function(){
     },1000); 
 });
 
-
+//Submit
 searchForm.addEventListener('submit', function(event){
 
     event.preventDefault();
@@ -63,6 +63,7 @@ searchForm.addEventListener('submit', function(event){
 
     axios.get(`${baseUrl}${city}/?token=${process.env.API_KEY}`)
         .then(function (response) {
+            console.log(response);
             let data = response.data.data;
             if(response.status >= 200 && response.status <300) {
                 loadData(data);
@@ -96,6 +97,7 @@ function success(pos){
     console.log(geoLat);
     axios.get(`${baseGeoUrl}${geoLat};${geoLon}/?token=${process.env.API_KEY}`)
         .then(function (response) {
+            console.log(response);
             let data = response.data.data;
             if(response.status >= 200 && response.status <300) {
                 loadData(data);
