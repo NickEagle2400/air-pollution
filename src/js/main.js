@@ -211,7 +211,7 @@ function loadData(data){
         }
 
         //Create map
-        const loader = new Loader();
+        const loader = new Loader({});
         
         loader.load().then(() => {
 
