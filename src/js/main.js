@@ -1,7 +1,10 @@
 import '../css/style.css';
 import { Loader } from "@googlemaps/js-api-loader"
 
+//axios
 const axios = require('axios');
+
+//urls
 const baseUrl = "https://api.waqi.info/feed/"
 const baseGeoUrl = "https://api.waqi.info/feed/geo:"
 
@@ -9,35 +12,43 @@ const baseGeoUrl = "https://api.waqi.info/feed/geo:"
 const loader = document.getElementById('loader');
 const root = document.getElementById('root');
 
+//api
 const API_KEY = process.env.API_KEY;
 
+//city input
 const searchForm = document.getElementById('search-form');
 const searchBtn = document.getElementById('search-btn');
 const cityIn = document.getElementById('city-in');
 
-const cityName = document.getElementById('cityName');
-const cityRegion = document.getElementById('cityRegion');
-const cityCountry = document.getElementById('cityCountry');
+//pollution Index
+const airQindex = document.getElementById('aqi');
+const aqiTime = document.getElementById('aqiTime');
+const index = document.getElementById('index');
 
+//pm2.5
 const pm = document.getElementById('pm');
 const pmToday = document.getElementById('pmToday');
 const pmMin = document.getElementById('pmMin');
 const pmMax = document.getElementById('pmMax');
 
+//pm10
 const pmp = document.getElementById('pmp');
 const pmpToday = document.getElementById('pmpToday');
 const pmpMin = document.getElementById('pmpMin');
 const pmpMax = document.getElementById('pmpMax');
 
+//ozone
 const ozone = document.getElementById('ozone');
 const ozoneToday = document.getElementById('ozoneToday');
 const ozoneMin = document.getElementById('ozoneMin');
 const ozoneMax = document.getElementById('ozoneMax');
 
-const airQindex = document.getElementById('aqi');
-const aqiTime = document.getElementById('aqiTime');
-const index = document.getElementById('index');
+//City info
+const cityName = document.getElementById('cityName');
+const cityRegion = document.getElementById('cityRegion');
+const cityCountry = document.getElementById('cityCountry');
 
+//btn Geolocation Api
 const myPos = document.getElementById('myposition');
 
 //loader
@@ -53,16 +64,19 @@ searchForm.addEventListener('submit', function(event){
 
     event.preventDefault();
 
+    //Removing blank spaces
     let temp = cityIn.value;
     let city = "";
     temp = temp.split(" ");
+
     for(let i = 0; i<temp.length;i++){
         city = city.concat(temp[i]);
     }
-    city = city.toLowerCase();
-    
-    cityIn.value = "";
 
+    //Lower case
+    city = city.toLowerCase();
+
+    //Api Request
     axios.get(`${baseUrl}${city}/?token=${API_KEY}`)
         .then(function (response) {
             console.log(response);
@@ -98,7 +112,7 @@ function success(pos){
     let geoLat = pos.coords.latitude.toFixed(4);
     let geoLon = pos.coords.longitude.toFixed(4);
 
-    console.log(geoLat);
+    //API request
     axios.get(`${baseGeoUrl}${geoLat};${geoLon}/?token=${API_KEY}`)
         .then(function (response) {
             console.log(response);
@@ -116,9 +130,7 @@ function success(pos){
         })
 }
 
-
-
-
+//check interval
 function checkValue(value){
     if(value<=50){
         return 1;
@@ -141,7 +153,8 @@ function checkValue(value){
     return -1;
 }
 
-function checkBorder(value,elem){
+//Set border color
+function setBorder(value,elem){
     switch(value){
         case 1: return elem.style.borderColor = "#009966";
         case 2: return elem.style.borderColor = "#FFDE33";
@@ -153,30 +166,34 @@ function checkBorder(value,elem){
     }
 }
 
+//Set innerHTML
 function loadData(data){
-    
+
+        //with some cities (es: New York) api returns error and city name undefined (but it returns index pm pmp value )
         if(data.aqi!==undefined){
             airQindex.innerHTML = data.aqi;
         }
+
         let date = data.time.iso.split("T")[0].split("-");
         aqiTime.innerHTML = date[2] + "-" + date[1] + "-" + date[0];
-        checkBorder(checkValue(data.aqi),index);
+        setBorder(checkValue(data.aqi),index);
 
         pmToday.innerHTML = data.iaqi?.pm25?.v;
         pmMin.innerHTML = data.forecast.daily.pm25[data.forecast.daily.pm25.length - 1].min;
         pmMax.innerHTML = data.forecast.daily.pm25[data.forecast.daily.pm25.length - 1].max;
-        checkBorder(checkValue(data.iaqi?.pm25?.v),pm);
+        setBorder(checkValue(data.iaqi?.pm25?.v),pm);
 
         pmpToday.innerHTML = data.iaqi?.pm10?.v;
         pmpMin.innerHTML = data.forecast.daily.pm10[data.forecast.daily.pm10.length - 1].min;
         pmpMax.innerHTML = data.forecast.daily.pm10[data.forecast.daily.pm10.length - 1].max;
-        checkBorder(checkValue(data.iaqi?.pm10?.v),pmp);
+        setBorder(checkValue(data.iaqi?.pm10?.v),pmp);
 
         ozoneToday.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg;
         ozoneMin.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length - 1].min;
         ozoneMax.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length - 1].max;
-        checkBorder(checkValue(data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg),ozone);
+        setBorder(checkValue(data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg),ozone);
         
+        //check and split city name
         let cityInfo = data.city.name.split(',')
         cityName.innerHTML = cityInfo[0];
         if(cityInfo[1]!==undefined){
@@ -193,11 +210,8 @@ function loadData(data){
             cityCountry.innerHTML = "";
         }
 
-        const loader = new Loader({
-            /*apiKey: "YOUR_API_KEY",
-            version: "weekly",
-            ...additionalOptions,*/
-        });
+        //Create map
+        const loader = new Loader();
         
         loader.load().then(() => {
 
