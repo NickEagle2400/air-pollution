@@ -79,7 +79,6 @@ searchForm.addEventListener('submit', function(event){
     //Api Request
     axios.get(`${baseUrl}${city}/?token=${API_KEY}`)
         .then(function (response) {
-            console.log(response);
             let data = response.data.data;
             if(response.status >= 200 && response.status <300) {
                 loadData(data);
