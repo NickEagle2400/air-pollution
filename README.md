@@ -56,19 +56,17 @@ GitHub CLI
 ```
 <br>
 
-2. Install npm package
+2. Install all dependencies
 ```sh
   npm install
 ```
 <br>
 
-3. Install Dependencies (See the links below)
-4. Create `dist` directory in the main folder
-4. Enter your API in `.env.example` and rename it `.env`
+3. Enter your API KEY in `.env.example` and rename it `.env`
 
-   ```js
-   API_KEY = YourAPIKey;
-   ```
+```js
+  API_KEY = YourAPIKey; \/\/insert here your api key
+```
 
 
 ## Dependencies
@@ -89,9 +87,6 @@ This application has two basic use cases:
 2. Click on "Use My Position" for the nearest station.
 
 Try app [Here](https://eager-neumann-565bb7.netlify.app/)
-
-## License
-Distributed under the MIT License. See LICENSE.txt for more information.
 
 ## Contact
 
