@@ -76,7 +76,6 @@ GitHub CLI
 [webpack-cli](https://webpack.js.org/api/cli/): "^4.9.1",<br>
 [css-loader](https://webpack.js.org/loaders/css-loader/): "^3.6.0",<br>
 [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack): "^7.0.3",<br>
-[inject-body-webpack-plugin](https://www.npmjs.com/package/inject-body-webpack-plugin): "^1.3.0",<br>
 [style-loader](https://webpack.js.org/loaders/style-loader/): "^1.3.0",<br>
 [@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader): "^1.12.7",<br>
 [axios](https://axios-http.com/docs/intro): "^0.23.0",<br>

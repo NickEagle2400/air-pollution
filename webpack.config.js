@@ -1,11 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InjectBodyPlugin = require('inject-body-webpack-plugin').default;
 const path = require('path');
 const { title } = require('process');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/js/main.js',
     devtool: 'inline-source-map',
     plugins:[
@@ -29,17 +28,6 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ]
-            },
-            {
-                test:/\.(gif|png|jpg|svg)(\?.*$|$)/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                        },
-                    },
-                ],
             }
         ]
     }
