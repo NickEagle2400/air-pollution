@@ -16,7 +16,6 @@ const API_KEY = process.env.API_KEY;
 
 //city input
 const searchForm = document.getElementById('search-form');
-const searchBtn = document.getElementById('search-btn');
 const cityIn = document.getElementById('city-in');
 
 //pollution Index
@@ -115,12 +114,7 @@ function fetchAPI(ElementUrl){
 
     axios.get(`${baseUrl}${ElementUrl}`)
         .then(function (response) {
-
-            let data = response.data.data;
-
-            if(response.status >= 200 && response.status <300) {
-                loadData(data);
-            }
+            loadData(response.data.data);
         })
         .catch(function (error) {
             alert("The city is not in the database.");
