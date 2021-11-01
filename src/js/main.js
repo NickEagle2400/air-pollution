@@ -4,9 +4,8 @@ import { Loader } from "@googlemaps/js-api-loader"
 //axios
 const axios = require('axios');
 
-//urls
+//url
 const baseUrl = "https://api.waqi.info/feed/"
-const baseGeoUrl = "https://api.waqi.info/feed/geo:"
 
 //constants
 const loader = document.getElementById('loader');
@@ -51,6 +50,7 @@ const cityCountry = document.getElementById('cityCountry');
 //btn Geolocation Api
 const myPos = document.getElementById('myposition');
 
+
 //loader
 window.addEventListener('load', function(){
     this.setTimeout(function(){
@@ -58,6 +58,7 @@ window.addEventListener('load', function(){
         root.style.display = "block";
     },1000); 
 });
+
 
 //Submit
 searchForm.addEventListener('submit', function(event){
@@ -76,22 +77,11 @@ searchForm.addEventListener('submit', function(event){
     //Lower case
     city = city.toLowerCase();
 
-    //Api Request
-    axios.get(`${baseUrl}${city}/?token=${API_KEY}`)
-        .then(function (response) {
-            let data = response.data.data;
-            if(response.status >= 200 && response.status <300) {
-                loadData(data);
-            }
-            console.log(response);
-        })
-        .catch(function (error) {
-            alert("The city is not in the database.");
-            console.log(error);
-        })
-        .then(function () {
-            // always executed
-        });
+    let endUrl = city + "/?token=" + API_KEY;
+
+    //Api request
+    fetchAPI(endUrl);
+
 })
 
 
@@ -105,17 +95,29 @@ myPos.addEventListener('click', function(event){
 
 })
 
+
 //Successfull Get User Position
 function success(pos){
 
     let geoLat = pos.coords.latitude.toFixed(4);
     let geoLon = pos.coords.longitude.toFixed(4);
 
+    let endUrl = "geo:" + geoLat + ";" + geoLon + "/?token=" + API_KEY;
+
     //API request
-    axios.get(`${baseGeoUrl}${geoLat};${geoLon}/?token=${API_KEY}`)
+    fetchAPI(endUrl);
+
+}
+
+
+//API request function
+function fetchAPI(ElementUrl){
+
+    axios.get(`${baseUrl}${ElementUrl}`)
         .then(function (response) {
-            console.log(response);
+
             let data = response.data.data;
+
             if(response.status >= 200 && response.status <300) {
                 loadData(data);
             }
@@ -124,10 +126,8 @@ function success(pos){
             alert("The city is not in the database.");
             console.log(error);
         })
-        .then(function () {
-            // always executed
-        })
 }
+
 
 //check interval
 function checkValue(value){
@@ -152,6 +152,7 @@ function checkValue(value){
     return -1;
 }
 
+
 //Set border color
 function setBorder(value,elem){
     switch(value){
@@ -168,57 +169,54 @@ function setBorder(value,elem){
 //Set innerHTML
 function loadData(data){
 
-        //with some cities (es: New York) api returns error and city name undefined (but it returns index pm pmp value )
-        if(data.aqi!==undefined){
-            airQindex.innerHTML = data.aqi;
-        }
+    airQindex.innerHTML = data.aqi;
 
-        let date = data.time.iso.split("T")[0].split("-");
-        aqiTime.innerHTML = date[2] + "-" + date[1] + "-" + date[0];
-        setBorder(checkValue(data.aqi),index);
+    let date = data.time.iso.split("T")[0].split("-");
+    aqiTime.innerHTML = date[2] + "-" + date[1] + "-" + date[0];
+    setBorder(checkValue(data.aqi),index);
 
-        pmToday.innerHTML = data.iaqi?.pm25?.v;
-        pmMin.innerHTML = data.forecast.daily.pm25[data.forecast.daily.pm25.length - 1].min;
-        pmMax.innerHTML = data.forecast.daily.pm25[data.forecast.daily.pm25.length - 1].max;
-        setBorder(checkValue(data.iaqi?.pm25?.v),pm);
+    pmToday.innerHTML = data.iaqi?.pm25?.v;
+    pmMin.innerHTML = data.forecast.daily.pm25[data.forecast.daily.pm25.length - 1].min;
+    pmMax.innerHTML = data.forecast.daily.pm25[data.forecast.daily.pm25.length - 1].max;
+    setBorder(checkValue(data.iaqi?.pm25?.v),pm);
 
-        pmpToday.innerHTML = data.iaqi?.pm10?.v;
-        pmpMin.innerHTML = data.forecast.daily.pm10[data.forecast.daily.pm10.length - 1].min;
-        pmpMax.innerHTML = data.forecast.daily.pm10[data.forecast.daily.pm10.length - 1].max;
-        setBorder(checkValue(data.iaqi?.pm10?.v),pmp);
+    pmpToday.innerHTML = data.iaqi?.pm10?.v;
+    pmpMin.innerHTML = data.forecast.daily.pm10[data.forecast.daily.pm10.length - 1].min;
+    pmpMax.innerHTML = data.forecast.daily.pm10[data.forecast.daily.pm10.length - 1].max;
+    setBorder(checkValue(data.iaqi?.pm10?.v),pmp);
 
-        ozoneToday.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg;
-        ozoneMin.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length - 1].min;
-        ozoneMax.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length - 1].max;
-        setBorder(checkValue(data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg),ozone);
-        
-        //check and split city name
-        let cityInfo = data.city.name.split(',')
-        cityName.innerHTML = cityInfo[0];
-        if(cityInfo[1]!==undefined){
-            cityRegion.innerHTML = cityInfo[1];
-        }
-        else{
-            cityRegion.innerHTML = "";
-        }
+    ozoneToday.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg;
+    ozoneMin.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length - 1].min;
+    ozoneMax.innerHTML = data.forecast.daily.o3[data.forecast.daily.o3.length - 1].max;
+    setBorder(checkValue(data.forecast.daily.o3[data.forecast.daily.o3.length -1].avg),ozone);
+    
+    //check and split city name
+    let cityInfo = data.city.name.split(',')
+    cityName.innerHTML = cityInfo[0];
+    if(cityInfo[1]!==undefined){
+        cityRegion.innerHTML = cityInfo[1];
+    }
+    else{
+        cityRegion.innerHTML = "";
+    }
 
-        if(cityInfo[2]!==undefined){
-            cityCountry.innerHTML = cityInfo[2];
-        }
-        else{
-            cityCountry.innerHTML = "";
-        }
+    if(cityInfo[2]!==undefined){
+        cityCountry.innerHTML = cityInfo[2];
+    }
+    else{
+        cityCountry.innerHTML = "";
+    }
 
-        //Create map
-        const loader = new Loader({});
-        
-        loader.load().then(() => {
+    //Create map
+    const loader = new Loader({});
+    
+    loader.load().then(() => {
 
-            let map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: data.city.geo[0], lng: data.city.geo[1] },
-                zoom: 12,
-            });
+        let map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: data.city.geo[0], lng: data.city.geo[1] },
+            zoom: 12,
         });
+    });
 }
 
 
